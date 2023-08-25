@@ -6,6 +6,7 @@ import (
 )
 
 var goodsUrl = flag.String("g", "aa", "need -g url")
+var storeDir = flag.String("d", "ccc", "need -g url")
 
 func main() {
 	flag.Parse()
@@ -15,7 +16,7 @@ func main() {
 	//fmt.Println("err is ", err)
 	c := colly.GetColly(colly.DetailColl, colly.Options{
 		Url:      *goodsUrl,
-		StoreDir: "./tmp",
+		StoreDir: "./tmp/" + *storeDir,
 	})
 	c.CollyPage()
 }

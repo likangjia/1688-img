@@ -145,5 +145,5 @@ func (d *DetailPage) matchMainAndProp(body string) {
 }
 
 func (d *DetailPage) genTileDir() string {
-	return fmt.Sprintf("%s/%s-%s", d.StoreDir, time.Now().Format("2006-01-02"), title)
+	return fmt.Sprintf("%s/%s/%s", d.StoreDir, time.Now().Format("2006-01-02"), strings.Replace(title, "/", "or", -1))
 }
