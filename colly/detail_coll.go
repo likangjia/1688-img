@@ -139,6 +139,9 @@ func (d *DetailPage) matchMainAndProp(body string) {
 			return
 		}
 		for _, m := range mJsonMainSku {
+			if _, ok := m["imageUrl"]; !ok {
+				continue
+			}
 			d.DownImages[formatSortName(m["name"])] = m["imageUrl"]
 		}
 	}
