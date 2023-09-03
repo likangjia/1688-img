@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gocolly/colly"
+	"github.com/spf13/cast"
+	"os"
 	"regexp"
 	"strings"
 	"time"
@@ -79,6 +81,10 @@ func (d *DetailPage) CollyPage() {
 		return
 	}
 	if d.StoreDir != "" {
+		err = os.MkdirAll(d.genTileDir(), os.ModePerm)
+		if err != nil {
+			return
+		}
 		for k, s := range d.DownImages {
 			split := strings.Split(s, ".")
 			ex := strings.Split(split[len(split)-1], "?")
@@ -98,6 +104,9 @@ func formatSortName(name interface{}) string {
 	defer func() {
 		i++
 	}()
+	// 过滤敏感词
+
+	name = file.HandleFileName(cast.ToString(name))
 	return fmt.Sprintf("%d--%v", i, name)
 }
 

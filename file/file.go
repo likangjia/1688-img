@@ -20,10 +20,6 @@ func Download(url string, fileDir string, fileName string) error {
 	if resp.StatusCode != http.StatusOK {
 		return errors.New("failed to download file: status code is not 200")
 	}
-	err = os.MkdirAll(fileDir, os.ModePerm)
-	if err != nil {
-		return err
-	}
 
 	file, err := os.Create(generateFilePath(fileDir, fileName))
 	if err != nil {
