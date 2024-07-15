@@ -1,8 +1,8 @@
 package main
 
 import (
-	"1688/colly"
 	"flag"
+	"github.com/likangjia/1688-img/colly"
 )
 
 var goodsUrl = flag.String("g", "aa", "need -g url")
