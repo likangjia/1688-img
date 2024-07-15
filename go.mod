@@ -1,4 +1,4 @@
-module 1688
+module github.com/likangjia/1688-img
 
 go 1.16
 
