@@ -5,7 +5,7 @@ import (
 	"github.com/likangjia/1688-img/colly"
 )
 
-var goodsUrl = flag.String("g", "aa", "need -g url")
+var goodsUrl = flag.String("g", "https://detail.1688.com/offer/833385995567.html", "need -g url")
 var storeDir = flag.String("d", "ccc", "need -g url")
 
 func main() {
